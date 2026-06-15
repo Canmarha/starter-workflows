@@ -1,6 +1,6 @@
 #!/usr/bin/env npx ts-node
 import { promises as fs } from "fs";
-import { safeLoad } from "js-yaml";
+import { load } from "js-yaml";
 import { basename, extname, join, dirname } from "path";
 import { Validator as validator } from "jsonschema";
 import { endGroup, error, info, setFailed, startGroup } from '@actions/core';
@@ -78,7 +78,7 @@ async function checkWorkflow(workflowPath: string, propertiesPath: string, allow
   }
   try {
     const workflowFileContent = await fs.readFile(workflowPath, "utf8");
-    safeLoad(workflowFileContent); // Validate yaml parses without error
+    load(workflowFileContent); // Validate yaml parses without error
 
     const propertiesFileContent = await fs.readFile(propertiesPath, "utf8")
     const properties: WorkflowProperties = JSON.parse(propertiesFileContent)
@@ -112,7 +112,7 @@ async function checkWorkflow(workflowPath: string, propertiesPath: string, allow
         workflowErrors.errors.push(`Workflow categories cannot be null or empty`)
       } 
       else if(!folder_categories.some(category => properties.categories[0].toLowerCase() == category.toLowerCase())) {
-        workflowErrors.errors.push(`The first category in properties.json categories for workflow in ${basename(path)} folder must be one of "${folder_categories}. Either move the workflow to an appropriate directory or change the category."`)
+        workflowErrors.errors.push(`The first category in properties.json categories for workflow in ${basename(path)} folder must be one of "${folder_categories}. Either move the workflow to an [...]
       }
     }
 
