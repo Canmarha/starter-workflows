@@ -1,7 +1,0 @@
-{
-    "name": "Datree",
-    "creator": "Datree",
-    "description": "Detect misconfigurations in your Kubernetes manifests and present them in Github code scanning",
-    "iconName": "datree",
-    "categories": ["Code Scanning", "YAML"]
-}

@@ -1,6 +1,0 @@
-{
-  "name": "puppet-lint",
-  "description": "Puppet Lint tests Puppet code against the recommended Puppet language style guide.",
-  "iconName": "puppet-lint",
-  "categories": [ "Code Scanning", "Puppet" ]
-}
